@@ -1,0 +1,19 @@
+// Virus Vs Heroes - JS (Short)
+
+const playBtn = document.getElementById("playBtn");
+const scoreEl = document.getElementById("score");
+const levelEl = document.getElementById("level");
+
+let score = 0;
+let level = 1;
+
+playBtn.addEventListener("click", () => {
+  score += Math.floor(Math.random() * 50) + 10; // random points
+  if (score > level * 200) level++;             // level up
+
+  scoreEl.textContent = "Score: " + score;
+  levelEl.textContent = "Level: " + level;
+
+  playBtn.textContent = "Attacking... ⚔️";
+  setTimeout(() => playBtn.textContent = "Play", 700);
+});

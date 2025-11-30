@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Virus Vs Heroes</title>
+  <style>
+    body{font-family:system-ui,Segoe UI,Roboto,Arial;margin:0;background:#071022;color:#e6f0ff;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh}
+    .card{background:linear-gradient(180deg,#0b2a44, #072233);padding:24px;border-radius:12px;box-shadow:0 6px 20px rgba(2,10,20,0.6);width:320px;text-align:center}
+    h1{margin:0 0 8px;font-size:20px;letter-spacing:0.6px}
+    p{margin:8px 0 16px;font-size:13px;color:#bcd7ff}
+    .btn{background:#14b8a6;border:none;padding:10px 14px;border-radius:8px;color:#021018;font-weight:700;cursor:pointer}
+    .meta{display:flex;justify-content:space-between;margin-top:12px;font-size:12px;color:#9ec7ff}
+  </style>
+</head>
+<body>
+  <div class="card" role="application" aria-label="Virus Vs Heroes game menu">
+    <h1>🦠 Virus Vs Heroes</h1>
+    <p>Defend the body — recruit heroes, stop outbreaks, and upgrade your immune base.</p>
+
+    <button class="btn" id="playBtn" aria-label="Play Virus Vs Heroes">Play</button>
+
+    <div class="meta" aria-hidden="true">
+      <span id="score">Score: 0</span>
+      <span id="level">Level: 1</span>
+    </div>
+  </div>
+
+  <script>
+    // Minimal behavior so the page is interactive immediately.
+    const playBtn = document.getElementById('playBtn');
+    const scoreEl = document.getElementById('score');
+    const levelEl = document.getElementById('level');
+    let score = 0, level = 1;
+
+    playBtn.addEventListener('click', () => {
+      // simple demo action — replace with full game logic later
+      score += Math.floor(Math.random()*50) + 10;
+      if (score > level * 200) level++;
+      scoreEl.textContent = 'Score: ' + score;
+      levelEl.textContent = 'Level: ' + level;
+      playBtn.textContent = 'Attack! ⚔️';
+      setTimeout(() => playBtn.textContent = 'Play', 800);
+    });
+  </script>
+</body>
+</html>
